@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="https://unpkg.com/feather-icons"></script>
+        <title>AceCAR - Inchirieri masini</title>
+        <!-- <link rel="icon" type="image/x-icon" href="images/icon-acemag.ico"> -->
+    </head>
+    <style>
+        body {
+            background: url(images/login_bg.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        .center-card{
+            display: flex;
+  align-items: center;
+  justify-content: center;
+        }
+    </style>
+    <body>
+        <!-- nav bar / top bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid px-5">
+                <a class="navbar-brand" href="#">AceCAR</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link fs-5" href="rent.html">Inchiriaza</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-5" href="share.html">Distribuire</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-5" href="subscription.html">AceCAR+ <font class="font-normal fs-6">Subscriptie</font></a>
+                        </li>
+                    
+                    
+                    </ul>
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-white px-2" href="rent.html" ><i data-feather="truck" class="text-white" width="20px"></i> Rezervari</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white px-3" href="share.html"><i data-feather="globe" class="text-white" width="20px"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white px-2" href="subscription.html"><i data-feather="user" class="text-white" width="20px"></i> Autentificare | Inregistrare</a>
+                        </li>
+                    
+                    
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- box login -->
+        <div class="center-card pt-5">
+            <div class="col-lg-3">
+                <div class="card text-bg-dark">
+                    <div class="card-body">
+                        <h5 class="card-title text-center pt-2">AceCar - Autentificare</h5>
+                        <div class="d-grid gap-2 pt-3+">
+                            <button class="btn btn-danger" type="button">Conectare cu Gmail</button>
+                        </div>
+                        <div class="text-center py-2">- OR -</div>
+                        <label for="inputPassword5" class="form-label">Nume de utilizator</label>
+                        <input type="name" class="form-control" placeholder="Introdu numele">
+                        <label for="inputPassword5" class="form-label pt-3">Parola</label>
+                        <input type="password" class="form-control" placeholder="Introdu parola">
+                        <div class="d-grid gap-2 pt-4">
+                            <button class="btn btn-success" type="button">Conectare</button>
+                            <button class="btn btn-primary" type="button">Creeaza cont</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <script>
+            feather.replace()
+        </script>
+    </body>
+
+</html>
