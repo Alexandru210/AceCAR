@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="https://unpkg.com/feather-icons"></script>
+        <script src="https://kit.fontawesome.com/c48292ea05.js" crossorigin="anonymous"></script>
+        <title>AceCAR - Inchirieri masini</title>
+        <!-- <link rel="icon" type="image/x-icon" href="images/icon-acemag.ico"> -->
+    </head>
+    <style>
+        body{
+            background: #f2f2f2;
+        }
+        .navbar-nav {
+            font-weight: 500;
+        }
+        .font-normal{
+            font-weight: normal;
+        }
+        .font-bold{
+            font-weight: 700;
+        }
+        .font-bold2{
+            font-weight: 500;
+        }
+        .position-products{
+            position: absolute;
+            left: 10%;
+            right: 10%;
+            padding: 0.2em;
+        }
+        @media only screen and (max-width: 1687px) {
+            .position-products{
+                position: absolute;
+                left: 2%;
+                right: 2%;
+                padding: 0.2em;
+            }
+        }
+        @media only screen and (max-width: 600px) {
+            .position-products{
+                position: absolute;
+                left: 10%;
+                right: 10%;
+                padding: 0.2em;
+            }
+        }
+        .position-top{
+            top: 1.25em;
+        }
+        .orange{
+            color: #fd7e14;
+        }
+        .cursor-pointer{
+            cursor: pointer;
+        }
+        .display-inline{
+            display: inline-block;
+        }
+    </style>
+    <body>
+        
+        <!-- navbar / top bar -->
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid px-5">
+                <a class="navbar-brand" href="#">AceCAR</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark fs-5" href="rent.html">Inchiriaza</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark fs-5" href="share.html">Distribuire</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark fs-5" href="subscription.html">AceCAR+ <font class="font-normal fs-6">Subscriptie</font></a>
+                        </li>
+                    
+                    
+                    </ul>
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark px-2" href="rent.html" ><i data-feather="truck" class="text-dark" width="20px"></i> Rezervari</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark px-3" href="share.html"><i data-feather="globe" class="text-dark" width="20px"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark px-2" href="subscription.html"><i data-feather="user" class="text-dark" width="20px"></i> Autentificare | Inregistrare</a>
+                        </li>
+                    
+                    
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="row position-products pt-5">
+            <div class="col-lg-3 py-2">
+                
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="orange text-end font-bold2">
+                                Reset filtre
+                            </div>
+                            <h5 class="card-title pt-2">Tip vehicul</h5>
+                            <div class="form-check">
+                                <div class="ps-2">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">Sedan</label>
+                                    
+                                </div>
+                            </div>
+                            <div class="form-check">
+                                <div class="ps-2">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">Sedan</label>
+                                    
+                                </div>
+                            </div>
+                            <div class="form-check">
+                                <div class="ps-2">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">Sedan</label>
+                                </div>
+                            </div>
+                            <hr>
+                            <h5 class="card-title pt-2">Doar automata</h5>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            </div>
+
+                            
+                            <hr>
+                            <h5 class="card-title pt-2">Numar pasageri</h5>
+                            <input type="range" class="form-range" min="2" max="8" step="1" id="customRange3" oninput="num.value = this.value" value="5">
+                            <div class="text-center">
+                                <output id="num">5</output>
+                                pasageri
+                            </div>
+                            <hr>
+                            <h5 class="card-title pt-2">Numar bagaje</h5>
+                            <input type="range" class="form-range" min="1" max="4" step="1" id="customRange3" oninput="num.value = this.value" value="2">
+                            <div class="text-center">
+                                <output id="num">2</output>
+                                bagaje
+                            </div>
+                            <div class="d-grid gap-2 pt-4">
+                                <button class="btn btn-success" type="button">Aplica filtre</button>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+            <div class="col-lg-9">
+                <div class="row">
+                    <div class="col-lg-4 py-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title pt-2">Opel Corsa</h5>
+                                <div class="text-muted">or similar | Sedan</div>
+                                <img class="" src="images/opel.png" width="100%">
+                                
+                                <div class="row text-center text-muted">
+                                    <div class="col-lg-3">
+                                        <i class="fa-solid fa-users" width="20px"></i><br> 5locuri
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <i class="fa-solid fa-gear" width="20px"></i><br> manual
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <i class="fa-solid fa-gauge" width="20px"></i><br> 300km
+                                    </div>
+                                    <div class="col-lg-3 cursor-pointer">
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-ellipsis" width="20px"></i><br>detalii</a>
+                                    </div>
+                                </div>
+                                <h5 class="orange font-bold">$50 / day</h5>
+                                <h6 >$170 / total</h6>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5" id="exampleModalLabel">Informatii - Opel Corsa</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="font-bold">Detalii vehicul:</div>
+                                    <div class="ps-2">
+                                        <div class="display-inline font-bold2">Motorizare:</div> 1.6TSI
+                                        <br>
+                                        <div class="display-inline font-bold2">Numar pasageri:</div> 5
+                                        <br>
+                                        <div class="display-inline font-bold2">Numar bagaje:</div> 2
+                                        <br>
+                                        <div class="display-inline font-bold2">Combustibil:</div> benzina
+                                        <br>
+                                        <div class="display-inline font-bold2">Numar km fara plata:</div> 300
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Inchide</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-lg-4 py-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title pt-2">Opel Corsa</h5>
+                                <div class="text-muted">or similar | Sedan</div>
+                                <img class="" src="images/opel.png" width="100%">
+                                
+                                <div class="row text-center text-muted">
+                                    <div class="col-lg-3">
+                                        <i class="fa-solid fa-users" width="20px"></i><br> 5locuri
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <i class="fa-solid fa-gear" width="20px"></i><br> manual
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <i class="fa-solid fa-gauge" width="20px"></i><br> 300km
+                                    </div>
+                                    <div class="col-lg-3 cursor-pointer">
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-ellipsis" width="20px"></i><br>detalii</a>
+                                    </div>
+                                </div>
+                                <h5 class="orange font-bold">$50 / day</h5>
+                                <h6 >$170 / total</h6>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5" id="exampleModalLabel">Informatii - Opel Corsa</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="font-bold">Detalii vehicul:</div>
+                                    <div class="ps-2">
+                                        <div class="display-inline font-bold2">Motorizare:</div> 1.6TSI
+                                        <br>
+                                        <div class="display-inline font-bold2">Numar pasageri:</div> 5
+                                        <br>
+                                        <div class="display-inline font-bold2">Numar bagaje:</div> 2
+                                        <br>
+                                        <div class="display-inline font-bold2">Combustibil:</div> benzina
+                                        <br>
+                                        <div class="display-inline font-bold2">Numar km fara plata:</div> 300
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Inchide</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-lg-4 py-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title pt-2">Opel Corsa</h5>
+                                <div class="text-muted">or similar | Sedan</div>
+                                <img class="" src="images/opel.png" width="100%">
+                                
+                                <div class="row text-center text-muted">
+                                    <div class="col-lg-3">
+                                        <i class="fa-solid fa-users" width="20px"></i><br> 5locuri
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <i class="fa-solid fa-gear" width="20px"></i><br> manual
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <i class="fa-solid fa-gauge" width="20px"></i><br> 300km
+                                    </div>
+                                    <div class="col-lg-3 cursor-pointer">
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-ellipsis" width="20px"></i><br>detalii</a>
+                                    </div>
+                                </div>
+                                <h5 class="orange font-bold">$50 / day</h5>
+                                <h6 >$170 / total</h6>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5" id="exampleModalLabel">Informatii - Opel Corsa</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="font-bold">Detalii vehicul:</div>
+                                    <div class="ps-2">
+                                        <div class="display-inline font-bold2">Motorizare:</div> 1.6TSI
+                                        <br>
+                                        <div class="display-inline font-bold2">Numar pasageri:</div> 5
+                                        <br>
+                                        <div class="display-inline font-bold2">Numar bagaje:</div> 2
+                                        <br>
+                                        <div class="display-inline font-bold2">Combustibil:</div> benzina
+                                        <br>
+                                        <div class="display-inline font-bold2">Numar km fara plata:</div> 300
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Inchide</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-lg-4 py-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title pt-2">Opel Corsa</h5>
+                                <div class="text-muted">or similar | Sedan</div>
+                                <img class="" src="images/opel.png" width="100%">
+                                
+                                <div class="row text-center text-muted">
+                                    <div class="col-lg-3">
+                                        <i class="fa-solid fa-users" width="20px"></i><br> 5locuri
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <i class="fa-solid fa-gear" width="20px"></i><br> manual
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <i class="fa-solid fa-gauge" width="20px"></i><br> 300km
+                                    </div>
+                                    <div class="col-lg-3 cursor-pointer">
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-ellipsis" width="20px"></i><br>detalii</a>
+                                    </div>
+                                </div>
+                                <h5 class="orange font-bold">$50 / day</h5>
+                                <h6 >$170 / total</h6>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5" id="exampleModalLabel">Informatii - Opel Corsa</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="font-bold">Detalii vehicul:</div>
+                                    <div class="ps-2">
+                                        <div class="display-inline font-bold2">Motorizare:</div> 1.6TSI
+                                        <br>
+                                        <div class="display-inline font-bold2">Numar pasageri:</div> 5
+                                        <br>
+                                        <div class="display-inline font-bold2">Numar bagaje:</div> 2
+                                        <br>
+                                        <div class="display-inline font-bold2">Combustibil:</div> benzina
+                                        <br>
+                                        <div class="display-inline font-bold2">Numar km fara plata:</div> 300
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Inchide</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-lg-4 py-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title pt-2">Opel Corsa</h5>
+                                <div class="text-muted">or similar | Sedan</div>
+                                <img class="" src="images/opel.png" width="100%">
+                                
+                                <div class="row text-center text-muted">
+                                    <div class="col-lg-3">
+                                        <i class="fa-solid fa-users" width="20px"></i><br> 5locuri
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <i class="fa-solid fa-gear" width="20px"></i><br> manual
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <i class="fa-solid fa-gauge" width="20px"></i><br> 300km
+                                    </div>
+                                    <div class="col-lg-3 cursor-pointer">
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-ellipsis" width="20px"></i><br>detalii</a>
+                                    </div>
+                                </div>
+                                <h5 class="orange font-bold">$50 / day</h5>
+                                <h6 >$170 / total</h6>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5" id="exampleModalLabel">Informatii - Opel Corsa</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="font-bold">Detalii vehicul:</div>
+                                    <div class="ps-2">
+                                        <div class="display-inline font-bold2">Motorizare:</div> 1.6TSI
+                                        <br>
+                                        <div class="display-inline font-bold2">Numar pasageri:</div> 5
+                                        <br>
+                                        <div class="display-inline font-bold2">Numar bagaje:</div> 2
+                                        <br>
+                                        <div class="display-inline font-bold2">Combustibil:</div> benzina
+                                        <br>
+                                        <div class="display-inline font-bold2">Numar km fara plata:</div> 300
+                                        <br>
+                                        <div class="display-inline font-bold2">Cutie de viteze:</div> Manuala
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Inchide</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <script>
+            feather.replace()
+        </script>
+    </body>
+
+</html>
