@@ -1,0 +1,56 @@
+body{
+    background: #f2f2f2;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
+.navbar-nav {
+    font-weight: 500;
+}
+.font-normal{
+    font-weight: normal;
+}
+.font-bold{
+    font-weight: 700;
+}
+.font-bold2{
+    font-weight: 500;
+}
+.position-products{
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    padding: 0.2em;
+}
+@media only screen and (max-width: 1687px) {
+    .position-products{
+        position: absolute;
+        left: 2%;
+        right: 2%;
+        padding: 0.2em;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .position-products{
+        position: absolute;
+        left: 10%;
+        right: 10%;
+        padding: 0.2em;
+    }
+}
+.position-top{
+    top: 1.25em;
+}
+.orange{
+    color: #fd7e14;
+}
+.white-bg{
+    background-color: #ffffff;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+.display-inline{
+    display: inline-block;
+}

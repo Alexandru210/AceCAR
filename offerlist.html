@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/style.css" rel="stylesheet">
         <script src="assets/js/bootstrap.bundle.min.js"></script>
         <script src="https://unpkg.com/feather-icons"></script>
         <script src="https://kit.fontawesome.com/c48292ea05.js" crossorigin="anonymous"></script>
@@ -13,6 +14,10 @@
     <style>
         body{
             background: #f2f2f2;
+        }
+        a{
+            text-decoration: none;
+            color:black;
         }
         .navbar-nav {
             font-weight: 500;
@@ -54,6 +59,9 @@
         .orange{
             color: #fd7e14;
         }
+        .white-bg{
+            background-color: #ffffff;
+        }
         .cursor-pointer{
             cursor: pointer;
         }
@@ -76,7 +84,7 @@
                             <a class="nav-link text-dark fs-5" href="rent.html">Inchiriaza</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark fs-5" href="share.html">Distribuire</a>
+                            <a class="nav-link text-dark fs-5" href="share.html">Locatii sedii</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark fs-5" href="subscription.html">AceCAR+ <font class="font-normal fs-6">Subscriptie</font></a>
@@ -146,9 +154,9 @@
                         </div>
                         <hr>
                         <h5 class="card-title pt-2">Numar bagaje</h5>
-                        <input type="range" class="form-range" min="1" max="4" step="1" id="customRange3" oninput="num.value = this.value" value="2">
+                        <input type="range" class="form-range" min="1" max="4" step="1" id="customRange3" oninput="bags.value = this.value" value="2">
                         <div class="text-center">
-                            <output id="num">2</output>
+                            <output id="bags">2</output>
                             bagaje
                         </div>
                         <div class="d-grid gap-2 pt-4">
@@ -233,7 +241,7 @@
                                         <a data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-ellipsis" width="20px"></i><br>detalii</a>
                                     </div>
                                 </div>
-                                <h5 class="orange font-bold">$50 / day</h5>
+                                <h5 class="orange font-bold pt-3">$50 / day</h5>
                                 <h6 >$170 / total</h6>
                             </div>
                         </div>
@@ -428,8 +436,17 @@
                     </div>
                 </div>
             </div>
-            <footer class="container py-5 footer-color position-default text-center">
-                test test test
+            <footer class="container py-5 text-center">
+                <div class="py-3">
+                    <a href="https://instagram.com"><i class="fa fa-instagram text-dark fa-xl px-2"></i></a>
+                    <a href="https://instagram.com"><i class="fa fa-facebook text-dark fa-xl px-2"></i></a>
+                    <a href="https://instagram.com"><i class="fa fa-twitter text-dark fa-xl px-2"></i></a>
+                </div>
+                <div class="pt-3 font-bold2">
+                    <div class="display-inline px-3"><a href="help.html">Ajutor</a></div>
+                    <div class="display-inline px-3"><a href="help.html">Informatii generale</a></div>
+                    <div class="display-inline px-3"><a href="help.html">Termeni si conditii</a></div>
+                </div>
             </footer>
         </div>
 
