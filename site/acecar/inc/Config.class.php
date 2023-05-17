@@ -7,7 +7,7 @@ class Config {
 	// init configuration Google Login
 	public static $clientID = '709308979404-pgov7tabl2k9go6sf2au3a3tthvftid3.apps.googleusercontent.com';
 	public static $clientSecret = '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';
-	public static $redirectUri = 'https://localhost/acecar';
+	public static $redirectUri = 'https://localhost/acecar/login';
 
 	private static $instance;
 
@@ -17,7 +17,7 @@ class Config {
 
 	private static $_pages = array(
 
-		'index', 'login', 'logout', 'adminpanel', 'offerlist'
+		'index', 'login', 'logout', 'adminpanel', 'offerlist', 'settings', 'locations'
 
 	);
 
@@ -151,6 +151,62 @@ class Config {
 
 		return $ez;
 
+	}
+
+	public static function isConnected(){
+		if(isset($_SESSION['isUserID']) && !empty($_SESSION['isUserID'])){
+			return 1;
+		}
+		return 0;
+	}
+
+	public static function createNotifAndRedirect($shownotif, $title, $message, $icon, $color, $redirect_location){
+		if($shownotif){
+			switch($icon){
+				case 'error': $_icon = 'fa-triangle-exclamation'; break;
+				case 'success': $_icon = 'fa-circle-check'; break;
+				default: $_icon = 'fa-triangle-exclamation';
+			}
+			$_SESSION['notif_message'] = '
+										<div class="toast-container position-fixed bottom-0 end-0 p-3">
+											<div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+												<div class="toast-header '.$color.' text-white">
+													<strong class="me-auto"><i class="fa-solid '.$_icon.' fa-xl"></i> '.$title.'</strong>
+													<small>acum</small>
+													<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+												</div>
+												<div class="toast-body '.$color.' text-white">
+													'.$message.'
+												</div>
+											</div>
+										</div>';
+			$_SESSION['notif_show'] = 1;
+		}
+		echo '<script>location.replace("'.Config::$_PAGE_URL.$redirect_location.'")</script>';
+		
+	}
+
+	public static function formatName(){
+		try {
+			$qq = Config::$g_con->prepare('SELECT * FROM `clienti` where `ID` = ?');
+			$qq->execute(array($_SESSION['isUserID']));
+			while ($q = $qq->fetch(PDO::FETCH_OBJ)) {
+				if($q->accGoogle){
+					$format = '<img src="'.$q->Imagine.'" height="25px" style="border-radius: 50%" alt="error img"> '.$q->Prenume.' '.$q->Nume;
+				} else {
+					if($q->Imagine){
+						$format = '<img src="'.$q->Imagine.'" height="25px" style="border-radius: 50%" alt="error img"> '.$q->Prenume.' '.$q->Nume;
+					} else {
+						$format = '<img src="images/default_avatar.png" height="25px" style="border-radius: 50%" alt="error img"> '.$q->Prenume.' '.$q->Nume;
+					}
+						
+				}
+			}
+		} catch (throwable $eroare) {
+			print($eroare);
+		}
+
+		return $format;
 	}
 
 }

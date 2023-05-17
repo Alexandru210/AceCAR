@@ -1,4 +1,4 @@
-                <footer class="container py-5 text-center">
+                <footer class="container py-5 text-center bottom">
                     <div class="py-3">
                         <a href="https://instagram.com"><i class="fa fa-instagram text-dark fa-xl px-2"></i></a>
                         <a href="https://instagram.com"><i class="fa fa-facebook text-dark fa-xl px-2"></i></a>
@@ -14,6 +14,23 @@
 
         <script>
             feather.replace()
+
+            const toastTrigger = document.getElementById('liveToastBtn')
+            const toastLiveExample = document.getElementById('liveToast')
+            if (toastTrigger) {
+                toastTrigger.addEventListener('click', () => {
+                    const toast = new bootstrap.Toast(toastLiveExample)
+
+                    toast.show()
+                })
+            }
+
+            function showNotif(){
+                const toastLiveExample = document.getElementById('liveToast')
+                const toast = new bootstrap.Toast(toastLiveExample)
+
+                toast.show()
+            }
         </script>
     </body>
 
