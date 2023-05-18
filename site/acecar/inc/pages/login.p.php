@@ -35,6 +35,10 @@
             $qq = $q->fetch(PDO::FETCH_ASSOC);
             
             $_SESSION['isUserID'] = $qq['ID'];
+            if(isset($_SESSION['url'])){
+                Config::createNotifAndRedirect(1,"Autentificare", "Te-ai conectat cu succes!","success","bg-success",$_SESSION['url']);
+                return;
+            }
             Config::createNotifAndRedirect(1,"Autentificare", "Te-ai conectat cu succes!","success","bg-success","");
             return;
         } else { // nu este in baza de date
@@ -48,6 +52,10 @@
             $qq = $q->fetch(PDO::FETCH_ASSOC);
             
             $_SESSION['isUserID'] = $qq['ID'];
+            if(isset($_SESSION['url'])){
+                Config::createNotifAndRedirect(1,"Autentificare", "Te-ai conectat cu succes!","success","bg-success",$_SESSION['url']);
+                return;
+            }
             Config::createNotifAndRedirect(1,"Autentificare", "Te-ai conectat cu succes!","success","bg-success","");
             return;
         }
@@ -77,6 +85,10 @@
                         } catch (throwable $eroare) {
                             print($eroare);
                         } finally {
+                            if(isset($_SESSION['url'])){
+                                Config::createNotifAndRedirect(1,"Autentificare", "Te-ai conectat cu succes!","success","bg-success",$_SESSION['url']);
+                                return;
+                            }
                             Config::createNotifAndRedirect(1,"Autentificare", "Te-ai conectat cu succes!","success","bg-success","");
                             return;
                         }

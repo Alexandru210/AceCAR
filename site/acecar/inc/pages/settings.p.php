@@ -39,7 +39,7 @@
             print($eroare);
 
         } finally {
-            Config::createNotifAndRedirect(1,"Felictari!", "Ai actualizat cu succes setarile.","success","bg-success","settings");
+            Config::createNotifAndRedirect(1,"Felicitari!", "Ai actualizat cu succes setarile.","success","bg-success","settings");
             return;
         }
 

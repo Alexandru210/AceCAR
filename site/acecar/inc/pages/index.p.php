@@ -1,5 +1,35 @@
 <?php
-
+    if(isset($_GET['search'])){
+        if(isset($_GET['ridicare']) && !empty($_GET['ridicare']) && 
+        isset($_GET['returnare']) && !empty($_GET['returnare']) && 
+        isset($_GET['start']) && !empty($_GET['start']) && 
+        isset($_GET['end']) && !empty($_GET['end']))
+        {
+            $ridicare = Config::protect($_GET['ridicare']);
+            $returnare = Config::protect($_GET['returnare']);
+            $start = $_GET['start'];
+            $end = $_GET['end'];
+            echo $end;
+            if(strtotime($start) > strtotime($end)){
+                Config::createNotifAndRedirect(1,"Cautare", "Ai introdus o perioada invalida!","error","bg-danger","");
+                return;
+            }
+            if(time() - strtotime($start) > 1209600){
+                Config::createNotifAndRedirect(1,"Cautare", "Nu poti inchiria un vehicul cu mai mult de 14zile inainte!","error","bg-danger","");
+                return;
+            }
+            if(strtotime($start) - strtotime($end) > 2592000){
+                Config::createNotifAndRedirect(1,"Cautare", "Nu poti inchiria un vehicul mai mult de 30 de zile!","error","bg-danger","");
+                return;
+            }
+            Config::createNotifAndRedirect(0,"", "","","","offerlist?ridicare=".$ridicare."&returnare=".$returnare."&start=".$start."&end=".$end);
+            return;
+            
+        } else {
+            Config::createNotifAndRedirect(1,"Cautare", "Ai lasat campuri libere","error","bg-danger","");
+            return;
+        }
+    }
 ?>
 <!-- cover / image info -->
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
@@ -34,7 +64,7 @@
                                         </div>
                                         <div class="col-lg-6">
                                             <label for="exampleFormControlInput1" class="form-label">Returnare</label>
-                                            <select class="form-select" name="ridicare" aria-label="Default select example">
+                                            <select class="form-select" name="returnare" aria-label="Default select example">
                                                 <option disabled hidden selected>Alege o locatie</option>
                                                 <?php
                                                     try {
@@ -54,14 +84,14 @@
                                 </div>
                                 <div class="col-lg-2">
                                     <label for="exampleFormControlInput1" class="form-label">De la data</label>
-                                    <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="Locatie...">
+                                    <input type="date" name="start" class="form-control" id="exampleFormControlInput1" placeholder="Locatie...">
                                 </div>
                                 <div class="col-lg-2">
                                     <label for="exampleFormControlInput1" class="form-label">Pana la data</label>
-                                    <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="Locatie...">
+                                    <input type="date" name="end" class="form-control" id="exampleFormControlInput1" placeholder="Locatie...">
                                 </div>
                                 <div class="card col-lg-2" style="border: none;">
-                                    <button type="button" class="btn btn-primary btn-lg">Verifica!</button>
+                                    <button type="submit" name="search" class="btn btn-primary btn-lg">Verifica!</button>
                                 </div>
                             </div>
                         </form>

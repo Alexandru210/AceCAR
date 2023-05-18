@@ -144,6 +144,16 @@ class Config {
 	        return $data;
 	}
 
+	public static function getUrl(){
+		$temp = "$_SERVER[REQUEST_URI]";
+		$temp = str_replace('/acecar/','',$temp);
+		return $temp;
+	}
+
+	public static function getUrlFull(){
+		return "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+	}
+
 	public static function protect($text){
 	 	$config = HTMLPurifier_Config::createDefault();
 	 	$purifier = new HTMLPurifier($config);
@@ -151,6 +161,12 @@ class Config {
 
 		return $ez;
 
+	}
+	public static function getData($table, $cond, $cond_value, $data){
+		$qq = Config::$g_con->prepare('SELECT * FROM '.$table.' where '.$cond.' = ?');
+		$qq->execute(array($cond_value));
+		$q = $qq->fetch(PDO::FETCH_ASSOC);
+		return $q[$data];
 	}
 
 	public static function isConnected(){

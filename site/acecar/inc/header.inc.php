@@ -40,13 +40,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link text-dark fs-5" href="rent.html">Inchiriaza</a>
+                            <a class="nav-link text-dark fs-5" href="<?php echo Config::$_PAGE_URL; ?>offerlist">Inchiriaza</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark fs-5" href="<?php echo Config::$_PAGE_URL; ?>locations">Locatii</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark fs-5" href="subscription.html">AceCAR+ <font class="font-normal fs-6">Subscriptie</font></a>
                         </li>
                     </ul>
                     <ul class="navbar-nav mb-2 mb-lg-0">
